@@ -129,9 +129,8 @@ impl TuringMachine {
 }
 
 fn main() {
-    println!("RizeVM");
-    println!("Turing model virtual machine for education");
-    println!("{}", "-".repeat(45));
+    println!("Stem: Turing Educational Machine");
+    println!("{}", "-".repeat(35));
 
     let args: Vec<String> = env::args().collect();
     if args.len() < 2 {

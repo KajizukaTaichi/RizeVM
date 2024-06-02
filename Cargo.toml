@@ -1,5 +1,5 @@
 [package]
-name = "rizevm"
+name = "stem"
 version = "0.1.0"
 edition = "2021"
 
