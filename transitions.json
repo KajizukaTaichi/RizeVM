@@ -1,9 +1,10 @@
 {
-  "start_state": "q0",
-  "transitions": {
-    "q0_0": { "write": "1", "direction": "Right", "next_state": "q1" },
-    "q1_0": { "write": "0", "direction": "Left",  "next_state": "q2" },
-    "q2_1": { "write": "1", "direction": "Right", "next_state": "q0" },
-    "q3_1": { "write": "0", "direction": "Left",  "next_state": "q0" }
-  }
+    "tape": "00000",
+    "start_state": "q0",
+    "transitions": {
+        "q0_0": { "write": "1", "direction": "Right", "next_state": "q1" },
+        "q1_0": { "write": "0", "direction": "Left",  "next_state": "q2" },
+        "q2_1": { "write": "1", "direction": "Right", "next_state": "q0" },
+        "q3_1": { "write": "0", "direction": "Left",  "next_state": "q0" }
+    }
 }
