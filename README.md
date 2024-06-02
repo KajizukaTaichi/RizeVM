@@ -1,9 +1,8 @@
-# RizeVM
-Turing model virtual machine for education
+# Stem
+Stem: Turing Educational Machine
 
-```RizeVM
-Turing model virtual machine for education
----------------------------------------------
+```StemStem: Turing Educational Machine
+-----------------------------------
 Current State: q0, Read: 0
 [0] 0 0 0 0
 Write: 1, Move: "Right", Next State: q1
