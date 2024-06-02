@@ -1,6 +1,7 @@
 use serde::Deserialize;
 use serde_json::from_str;
 use std::collections::HashMap;
+use std::env;
 use std::fs;
 
 #[derive(Deserialize)]
@@ -12,6 +13,7 @@ struct Transition {
 
 #[derive(Deserialize)]
 struct TuringMachineConfig {
+    tape: String,
     start_state: String,
     transitions: HashMap<String, Transition>,
 }
@@ -128,11 +130,18 @@ impl TuringMachine {
 
 fn main() {
     println!("RizeVM");
-    println!("Turing model virtual machine for education\n\n");
+    println!("Turing model virtual machine for education");
+    println!("{}", "-".repeat(45));
 
+    let args: Vec<String> = env::args().collect();
+    if args.len() < 2 {
+        eprintln!("Usage: {} <transitions_file>", args[0]);
+        return;
+    }
+    let transitions_file = &args[1];
 
     // Read json file
-    let json = fs::read_to_string("transitions.json").expect("Unable to read file");
+    let json = fs::read_to_string(transitions_file).expect("Unable to read file");
     let config: TuringMachineConfig = from_str(&json).expect("JSON was not well-formatted");
 
     // Construct transitions table
@@ -145,7 +154,7 @@ fn main() {
     }
 
     // Initialize tape 
-    let tape = Tape::new("000");
+    let tape = Tape::new(&config.tape);
 
     // Initialize machine
     let mut machine = TuringMachine::new(tape, &config.start_state, transitions);
