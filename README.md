@@ -11,7 +11,7 @@ It's designed use for STEM education.
 
 ### Key format of transitions
 Write split "_" underscore.
-The left designate state, the right designate symbol will read
+The left designate state, the right designate symbol that will read
 
 ## Example
 
