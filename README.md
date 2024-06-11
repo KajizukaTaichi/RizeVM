@@ -27,46 +27,46 @@ This is to reverse binary value.
 }
 ```
 
-```
+```bash
 Stem: Turing Educational Machine
 -----------------------------------
 Current State: q0, Read: 1
 [1] 1 0 1 0 0 1 0
-Write: 0, Move: "Right", Next State: q0
+Write: 0, Move: Right, Next State: q0
  0[1] 0 1 0 0 1 0
 
 Current State: q0, Read: 1
  0[1] 0 1 0 0 1 0
-Write: 0, Move: "Right", Next State: q0
+Write: 0, Move: Right, Next State: q0
  0 0[0] 1 0 0 1 0
 
 Current State: q0, Read: 0
  0 0[0] 1 0 0 1 0
-Write: 1, Move: "Right", Next State: q0
+Write: 1, Move: Right, Next State: q0
  0 0 1[1] 0 0 1 0
 
 Current State: q0, Read: 1
  0 0 1[1] 0 0 1 0
-Write: 0, Move: "Right", Next State: q0
+Write: 0, Move: Right, Next State: q0
  0 0 1 0[0] 0 1 0
 
 Current State: q0, Read: 0
  0 0 1 0[0] 0 1 0
-Write: 1, Move: "Right", Next State: q0
+Write: 1, Move: Right, Next State: q0
  0 0 1 0 1[0] 1 0
 
 Current State: q0, Read: 0
  0 0 1 0 1[0] 1 0
-Write: 1, Move: "Right", Next State: q0
+Write: 1, Move: Right, Next State: q0
  0 0 1 0 1 1[1] 0
 
 Current State: q0, Read: 1
  0 0 1 0 1 1[1] 0
-Write: 0, Move: "Right", Next State: q0
+Write: 0, Move: Right, Next State: q0
  0 0 1 0 1 1 0[0]
 
 Current State: q0, Read: 0
  0 0 1 0 1 1 0[0]
-Write: 1, Move: "Right", Next State: q0
+Write: 1, Move: Right, Next State: q0
  0 0 1 0 1 1 0 1[_]
 ```
