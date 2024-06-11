@@ -18,7 +18,7 @@ The left designate state, the right designate symbol will read
 This is to reverse binary value.
 ```
 {
-    "tape": "100",
+    "tape": "11010010",
     "start_state": "q0",
     "transitions": {
         "q0_0": { "write": "1", "direction": "Right", "next_state": "q0" },
@@ -28,6 +28,8 @@ This is to reverse binary value.
 ```
 
 ```
+Stem: Turing Educational Machine
+-----------------------------------
 Current State: q0, Read: 1
 [1] 1 0 1 0 0 1 0
 Write: 0, Move: "Right", Next State: q0
