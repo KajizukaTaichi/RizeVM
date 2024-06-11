@@ -122,7 +122,7 @@ impl TuringMachine {
             self.tape.move_head(&Direction::from_str(&transition.direction));
             self.state = transition.next_state.clone();
 
-            println!("Write: {}, Move: {:?}, Next State: {}", transition.write, transition.direction, self.state);
+            println!("Write: {}, Move: {}, Next State: {}", transition.write, transition.direction, self.state);
             self.print_tape();
             println!();
 
