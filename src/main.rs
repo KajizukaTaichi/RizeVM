@@ -3,6 +3,26 @@ use serde_json::from_str;
 use std::collections::HashMap;
 use std::env;
 use std::fs;
+use crossterm::{
+    event::{self, KeyCode, KeyEvent},
+    terminal::{enable_raw_mode, disable_raw_mode},
+};
+use std::time::Duration;
+
+fn wait_keypress() {
+    let _ = enable_raw_mode();
+    loop {
+        if event::poll(Duration::from_secs(1)).unwrap_or(false) {
+            if let event::Event::Key(KeyEvent { code, .. }) = event::read().unwrap() {
+                match code {
+                    KeyCode::Char(_) | KeyCode::Enter | KeyCode::Esc | KeyCode::Tab => break,
+                    _ => {}
+                }
+            }
+        }
+    }
+    let _ = disable_raw_mode();
+}
 
 #[derive(Deserialize)]
 struct Transition {
@@ -94,7 +114,7 @@ impl TuringMachine {
         let current_char = self.tape.read();
         let key = (self.state.clone(), current_char);
 
-        if let Some(transition) = self.transitions.get(&key) {
+        let result = if let Some(transition) = self.transitions.get(&key) {
             println!("Current State: {}, Read: {}", self.state, current_char);
             self.print_tape();
 
@@ -109,7 +129,10 @@ impl TuringMachine {
             true
         } else {
             false
-        }
+        };
+
+        wait_keypress();
+        result
     }
 
     fn run(&mut self) {
@@ -134,7 +157,7 @@ fn main() {
 
     let args: Vec<String> = env::args().collect();
     if args.len() < 2 {
-        eprintln!("Usage: {} <transitions_file>", args[0]);
+        eprintln!("Usage: {} <transitions_json_file>", args[0]);
         return;
     }
     let transitions_file = &args[1];
