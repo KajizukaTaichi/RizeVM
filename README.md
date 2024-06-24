@@ -15,7 +15,7 @@ The left designate state, the right designate symbol that will read
 
 ## Example
 
-This is to reverse binary value.
+This is to bit flipping.
 ```
 {
     "tape": "11010010",
