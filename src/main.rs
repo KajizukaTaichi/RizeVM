@@ -4,7 +4,7 @@ use std::collections::HashMap;
 use std::env;
 use std::fs;
 use crossterm::{
-    event::{self, KeyCode, KeyEvent},
+    event::{self, KeyEvent},
     terminal::{enable_raw_mode, disable_raw_mode},
 };
 use std::time::Duration;
@@ -13,11 +13,8 @@ fn wait_keypress() {
     let _ = enable_raw_mode();
     loop {
         if event::poll(Duration::from_secs(1)).unwrap_or(false) {
-            if let event::Event::Key(KeyEvent { code, .. }) = event::read().unwrap() {
-                match code {
-                    KeyCode::Char(_) | KeyCode::Enter | KeyCode::Esc | KeyCode::Tab => break,
-                    _ => {}
-                }
+            if let event::Event::Key(KeyEvent { .. }) = event::read().unwrap() {
+                break
             }
         }
     }
